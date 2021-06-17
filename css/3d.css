@@ -1,0 +1,21 @@
+*{
+	  		background-color: #000;
+	  	}
+	  	.container{
+	  		border:1px solid yellow;
+	  		perspective: 800px;
+	  		overflow:hidden;
+	  	}
+	  	.box{
+	  		position:relative;
+	  		border:1px solid #f00;
+	  		width:133px;
+	  		height:200px;
+	  		margin:300px auto;
+	  		transform-style: preserve-3d;
+	  		transform:rotateX(-20deg) rotateY(0deg);
+	  	}
+	  	img{
+	  		position:absolute;
+	  		-webkit-box-reflect: below 5px -webkit-gradient(linear,left top,left bottom,from(transparent),color-stop(40%,transparent),to(rgba(250,250,250,0.4))); 
+	  	}

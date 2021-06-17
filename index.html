@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ondragstart="return false">
+	<head>
+		<meta charset="utf-8">
+		<title>3D</title>
+<link rel="stylesheet" href="css/3d.css" />
+	</head>
+	<body>
+		
+		<audio autoplay controls loop>
+		<source src="css/洛天依勾指起誓.mp3" type="audio/ogg">
+		<source src="css/洛天依勾指起誓.mp3" type="audio/mpeg">
+		<source src="css/生日快乐(吉他).mp3" type="audio/mp3">
+	</audio>
+		<div class="container">
+			<div class="box">
+			
+			<img src="img/01.jpg" alt="">
+			<img src="img/02.jpg"/ alt="">
+			<img src="img/03.jpg"/ alt="">
+			<img src="img/04.jpg"/ alt="">
+			<img src="img/05.jpg"/ alt="">
+			<img src="img/02.jpg"/ alt="">
+			<img src="img/01.jpg"/ alt="" >
+			<img src="img/03.gif"/ alt="" >
+		</div>
+		</div>
+	<script>
+		var wnqmg=document.querySelectorAll("img");
+		var mlength=wnqmg.length;
+		
+		var mdeg=360/mlength;
+		var mbox=document.querySelector(".box");
+		
+		window.onload=function(){
+			for(var i=0;i<mlength;i++){
+				wnqmg[i].style.transform="rotateY("+(mdeg*i)+"deg) translateZ(350px)";
+				wnqmg[i].style.transition="1s "+(mlength-i)*0.1+"s";
+			}
+		}
+		var newX,newY,lastX,lastY,cvalueX,cvalueY,rotX=-20,rotY=0;
+		document.onmousedown=function(e){
+			lastX=e.clientX;
+			lastY=e.clientY;
+			
+			this.onmousemove=function(e){
+				newX=e.clientX;
+				newY=e.clientY;
+				console.log(newX+" "+newY);
+				
+				cvalueX=newX-lastX;
+				cvalueY=newY-lastY;
+				
+				rotX-=cvalueY;
+				rotY-=cvalueX;
+				
+				mbox.style.transform="rotateX("+rotX*0.1+"deg) rotateY("+rotY*0.1+"deg)"
+				
+				lastX=newX;
+				lastY=newY;
+				
+				this.onmouseup=function(){
+					this.onmousemove=null;
+				}
+				
+			}
+		}
+	</script>
+	
+	</body>
+</html>
